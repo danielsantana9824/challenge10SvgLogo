@@ -5,7 +5,7 @@ const Triangle = require("./lib/triangle");
 const fs = require("fs");
 
 inquirer.prompt([{
-    
+
     type: "input",
     message: "Enter 3 or less characters text:",
     validate: (text) => text.length <= 3 ? true : false,
@@ -36,7 +36,7 @@ inquirer.prompt([{
 
         switch (res.shape) {
 
-            case res.shape === "circle":
+            case "circle":
 
                 const circle = new Circle(res.text, res.textColor, res.shapeColor)
                 content = circle.render()
@@ -44,7 +44,7 @@ inquirer.prompt([{
 
                 break;
 
-            case res.shape === "triangle":
+            case "triangle":
 
                 const triangle = new Triangle(res.text, res.textColor, res.shapeColor)
                 content = triangle.render()
@@ -61,5 +61,4 @@ inquirer.prompt([{
         }
 
         fs.writeFile(filename, content, (err) => err ? console.log(err) : console.log("success"))
-
     })
