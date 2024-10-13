@@ -2,30 +2,31 @@ const inquirer = require("inquirer");
 const Circle = require("./lib/circle");
 const Square = require("./lib/square");
 const Triangle = require("./lib/triangle");
+const colors = require("colors");
 const fs = require("fs");
 
 inquirer.prompt([{
 
     type: "input",
-    message: "Enter 3 or less characters text:",
+    message: colors.magenta("Enter 3 or less characters text:"),
     validate: (text) => text.length <= 3 ? true : false,
     name: "text"
 },
 {
     type: "input",
-    message: "Enter text color:",
+    message: colors.magenta("Enter text color:"),
     name: "textColor"
 
 },
 {
     type: "input",
-    message: "Enter shape color:",
+    message: colors.magenta("Enter shape color:"),
     name: "shapeColor"
 
 },
 {
     type: "list",
-    message: "choose shape:",
+    message: colors.magenta("choose shape:"),
     name: "shape",
     choices: ["circle", "triangle", "square"]
 }
